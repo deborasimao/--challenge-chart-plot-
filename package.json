@@ -1,0 +1,34 @@
+{
+  "name": "challenge-chart-plot",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "chart.js": "^2.7.2",
+    "chartkick": "^2.3.4",
+    "monaco-editor": "^0.11.1",
+    "node-sass-chokidar": "^1.2.0",
+    "normalize.css": "^8.0.0",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.2.0",
+    "react-chartkick": "^0.1.7",
+    "react-dom": "^16.2.0",
+    "react-monaco-editor": "^0.14.1",
+    "react-scripts": "1.1.1"
+  },
+  
+  "scripts": {
+    "postinstall": "copyfiles -a -u 3 node_modules/monaco-editor/min/vs/**/* public/show",
+    "start-js": "react-scripts start",
+    "watch-css": "npm run build-css && node-sass-chokidar src/Components -o src/Components --watch --recursive",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build-css": "node-sass-chokidar src/sass src/stylesheets -o src/stylesheets",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "generateTest": "node src/lib/dataGenerator"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.0.0"
+  }
+}
